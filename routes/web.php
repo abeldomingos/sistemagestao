@@ -20,6 +20,13 @@ Route::get('/', function () {
 
 
 Route::post('/cadastrar-produto'  , function (Request $request) {
-      dd($request->all()); //Estou a pedir pra ser mostrada todas as informações //Recebo as informações do formulario apartir do metódo dd()
+     // dd($request->all()); //Estou a pedir pra ser mostrada todas as informações //Recebo as informações do formulario apartir do metódo dd()
+     //Criando um produto no banco de dados
+     Produto::create([
+        'nome' => $request->nome,
+        'preco' => $request->preco,
+        'estoque' => $request->estoque
+     ]);
+     echo "Produto criado com sucesso!";
 });
 
